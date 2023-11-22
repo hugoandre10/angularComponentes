@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 
 @Component({
   selector: 'app-botao-controle',

@@ -31,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf.component';
 import { BotaoComponent } from './shared/botao/botao.component';
+import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { BotaoComponent } from './shared/botao/botao.component';
     ModalComponent,
     BotaoControleComponent,
     DropdownUfComponent,
-    BotaoComponent
+    BotaoComponent,
+    DepoimentosComponent
   ],
   imports: [
     BrowserModule,

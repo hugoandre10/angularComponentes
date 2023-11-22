@@ -12,15 +12,11 @@ import { UnidadeFederativa } from 'src/app/core/types/types';
 export class DropdownUfComponent implements OnInit {
   @Input() label: string = ``;
   @Input() iconePrefixo: string = ``;
-
-  myControl = new FormControl('');
+  @Input() control!: FormControl;
 
   unidadesFederativas:UnidadeFederativa[] = [];
 
-  filteredOptions: Observable<string[]> = this.myControl.valueChanges.pipe(
-    startWith(''),
-    map(value => this._filter(value || '')),
-  );
+  filteredOptions$?: Observable<UnidadeFederativa[]>;
 
   constructor (private unidadeFederativaService: UnidadeFederativaServiceService) {
 
@@ -35,15 +31,20 @@ export class DropdownUfComponent implements OnInit {
         }
       )
 
+      this.filteredOptions$ = this.control.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      )
+
   }
 
 
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  private _filter(value: string): UnidadeFederativa[] {
+    const filterValue = value?.toLowerCase();
 
     return this.unidadesFederativas.filter(option => option.nome.toLowerCase().includes(filterValue))
-    .map(option => option.nome);
+
   }
 
 }

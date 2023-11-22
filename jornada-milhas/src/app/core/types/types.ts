@@ -20,7 +20,16 @@ export interface Botoes {
   danger: BotaoConfig;
 }
 
+export interface Depoimento {
+  id: number
+  texto: string
+  autor: string
+  avatar: string
+}
+
 export interface BotaoConfig {
   titulo: string;
   styles: { };
 }
+
+
