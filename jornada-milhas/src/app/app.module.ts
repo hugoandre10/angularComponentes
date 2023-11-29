@@ -32,6 +32,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf.component';
 import { BotaoComponent } from './shared/botao/botao.component';
 import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.component';
+import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.compo
     BotaoControleComponent,
     DropdownUfComponent,
     BotaoComponent,
-    DepoimentosComponent
+    DepoimentosComponent,
+    SeletorPassageiroComponent
   ],
   imports: [
     BrowserModule,

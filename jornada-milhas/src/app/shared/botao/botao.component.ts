@@ -28,11 +28,4 @@ danger = {
   styles: { backgroundColor: '#dc3545' }
 };
 
-
-
-
-  @Input() btnConfig?:Botoes
-
-
-
 }

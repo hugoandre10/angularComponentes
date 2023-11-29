@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, MinValidator } from '@angular/forms';
 import { MatChipSelectionChange } from '@angular/material/chips';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
@@ -18,66 +18,10 @@ export class FormBuscaService {
       origem: new FormControl(null),
       destino: new FormControl(null),
       tipo: new FormControl("Econômica"),
-      adultos: new FormControl(1),
+      adultos: new FormControl(3),
       criancas: new FormControl(0),
-      bebes: new FormControl(0),
+      bebes: new FormControl(1),
     });
-
-   }
-
-   operacoesBotao (tipo:string , operacao: string): void {
-    let valorAdulto = 0;
-    let valorCrianca = 0;
-    let valorBebe = 0;
-    switch (true) {
-      case tipo === 'adultos' && operacao === 'decrementar':
-        valorAdulto = this.formBusca.get('adultos')?.value;
-        valorAdulto -= 1;
-        if (valorAdulto > 0) {
-          this.formBusca.get('adultos')?.patchValue(valorAdulto);
-        }
-        break;
-
-      case tipo === 'adultos' && operacao === 'incrementar':
-        valorAdulto = this.formBusca.get('adultos')?.value;
-        valorAdulto += 1;
-        if (valorAdulto > 0) {
-          this.formBusca.get('adultos')?.patchValue(valorAdulto);
-        }
-        break;
-
-      case 'criancas' && 'decrementar':
-        valorCrianca = this.formBusca.get('criancas')?.value;
-        valorCrianca -= 1;
-        if (valorCrianca > 0) {
-          this.formBusca.get('criancas')?.patchValue(valorCrianca);
-        }
-        break;
-
-      case 'criancas' && 'incrementar':
-        valorCrianca = this.formBusca.get('criancas')?.value;
-        valorCrianca += 1;
-        if (valorCrianca > 0) {
-          this.formBusca.get('criancas')?.patchValue(valorCrianca);
-        }
-        break;
-
-      case 'bebes' && 'decrementar':
-        valorBebe = this.formBusca.get('bebes')?.value;
-        valorBebe -= 1;
-        if (valorBebe > 0) {
-          this.formBusca.get('bebes')?.patchValue(valorBebe);
-        }
-        break;
-
-      case 'bebes' && 'incrementar':
-        valorBebe = this.formBusca.get('bebes')?.value;
-        valorBebe += 1;
-        if (valorBebe > 0) {
-          this.formBusca.get('bebes')?.patchValue(valorBebe);
-        }
-        break;
-    }
 
    }
 
@@ -85,9 +29,18 @@ export class FormBuscaService {
     let descricao = ''
 
     const adultos = this.formBusca.get('adultos')?.value;
-
     if (adultos && adultos > 0) {
-      descricao += ''
+      descricao += `Adulto${adultos > 1 ? 's' : ''}`;
+    }
+
+    const criancas = this.formBusca.get('criancas')?.value;
+    if (criancas && criancas > 0) {
+      descricao += `${descricao ? ', ' : ''} Criança${criancas > 1 ? 's' : ''}`;
+    }
+
+    const bebes = this.formBusca.get('bebes')?.value;
+    if (bebes && bebes > 0) {
+      descricao += `${descricao ? ', ' : ''} Bebê${bebes > 1 ? 's' : ''}`;
     }
 
     return descricao
@@ -103,15 +56,23 @@ export class FormBuscaService {
 
   alterarTipo (evento: MatChipSelectionChange, tipo: string) {
     if (evento.selected) {
-        this.formBusca.get('tipo')?.patchValue({
-        tipo
-      })
+        this.formBusca.get('tipo')?.patchValue(tipo)
     }
   }
 
   openDialog () {
     this.dialog.open(ModalComponent, {
       width: '50%'
+    });
+  }
+
+  trocarOrigemDestino(): void {
+    const origem = this.formBusca.get('origem')?.value;
+    const destino = this.formBusca.get('destino')?.value;
+
+    this.formBusca.patchValue({
+      origem: destino,
+      destino: origem
     });
   }
 }

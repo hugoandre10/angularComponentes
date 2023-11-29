@@ -12,5 +12,8 @@ export class FormBuscaComponent {
 
   }
 
+  buscar () {
+    console.log(this.formBuscaService.formBusca.value)
+  }
 
 }
