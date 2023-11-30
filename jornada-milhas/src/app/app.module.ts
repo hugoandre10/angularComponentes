@@ -33,6 +33,13 @@ import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf
 import { BotaoComponent } from './shared/botao/botao.component';
 import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.component';
 import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import {  MatCheckboxModule } from '@angular/material/checkbox';
+import {  MatRadioModule  } from '@angular/material/radio';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { FormBaseComponent } from './shared/form-base/form-base.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -51,7 +58,10 @@ import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-
     DropdownUfComponent,
     BotaoComponent,
     DepoimentosComponent,
-    SeletorPassageiroComponent
+    SeletorPassageiroComponent,
+    LoginComponent,
+    CadastroComponent,
+    FormBaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +80,10 @@ import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-
     MatDialogModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
