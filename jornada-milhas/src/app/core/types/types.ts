@@ -32,7 +32,7 @@ export interface BotaoConfig {
   styles: { };
 }
 
-export interface pessoaUsuaria {
+export interface PessoaUsuaria {
   nome: string,
   nascimento: string,
   cpf: string,
@@ -41,7 +41,11 @@ export interface pessoaUsuaria {
   senha: string,
   genero: string,
   cidade: string,
-  estado: UnidadeFederativa
+  estado: {
+    id: number,
+    nome: string,
+    sigla: string
+  }
 }
 
 

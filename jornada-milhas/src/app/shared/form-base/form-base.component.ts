@@ -13,7 +13,7 @@ export class FormBaseComponent implements OnInit {
   cadastroForm!: FormGroup;
   estadoControl = new FormControl<UnidadeFederativa | null>(null, Validators.required);
   @Input() perfilComponent!: boolean;
-  @Output() acaoClique: EventEmitter<any> = new EventEmitter<any>
+  @Output() acaoClique: EventEmitter<any> = new EventEmitter<any>()
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,18 +22,18 @@ export class FormBaseComponent implements OnInit {
 
   ngOnInit() {
     this.cadastroForm = this.formBuilder.group({
-      nome: [null, Validators.required],
-      nascimento: [null, [Validators.required]],
-      cpf: [null, [Validators.required]],
-      cidade: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]],
-      senha: [null, [Validators.required, Validators.minLength(3)]],
+      nome: ['null', Validators.required],
+      nascimento: ['09/09/1980', [Validators.required]],
+      cpf: ['11277490655', [Validators.required]],
+      cidade: ['teste', Validators.required],
+      email: ['teste@teste.teste', [Validators.required, Validators.email]],
+      senha: ['123456', [Validators.required, Validators.minLength(3)]],
       genero: ['outro'],
-      telefone: [null, Validators.required],
+      telefone: ['8976545126', Validators.required],
       estado: this.estadoControl,
-      confirmarEmail: [null, [Validators.required, Validators.email]],
-      confirmarSenha: [null, [Validators.required, Validators.minLength(3)]],
-      aceitarTermos: [null, [Validators.requiredTrue]]
+      confirmarEmail: ['teste@teste.teste', [Validators.required, Validators.email]],
+      confirmarSenha: ['123456', [Validators.required, Validators.minLength(3)]],
+      aceitarTermos: [true, [Validators.requiredTrue]]
     });
 
     this.formularioService.setCadastro(this.cadastroForm);

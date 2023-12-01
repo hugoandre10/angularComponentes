@@ -38,13 +38,10 @@ export class DropdownUfComponent implements OnInit {
 
   }
 
-
-
   private _filter(value: string): UnidadeFederativa[] {
-    const filterValue = value?.toLowerCase();
+    const filterValue = value;
 
     return this.unidadesFederativas.filter(option => option.nome.toLowerCase().includes(filterValue))
 
   }
-
 }
