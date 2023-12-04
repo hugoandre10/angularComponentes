@@ -1,0 +1,14 @@
+<div class="busca-page">
+  <app-banner src="assets/imagens/banner-cadastro.png" alt="" />
+  <app-container>
+          <app-form-busca (realizarBusca)="busca($event)"></app-form-busca>
+          <section class="conteudo">
+          <aside class="filtros-adicionais">
+           <app-filtros-complementares (realizarBusca)="busca($event)"></app-filtros-complementares>
+          </aside>
+          <div class="passagens" *ngFor="let item of passagens">
+                 <app-passagem [passagem]="item"></app-passagem>
+          </div>
+        </section>
+  </app-container>
+</div>

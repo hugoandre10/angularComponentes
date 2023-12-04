@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PromocaoService } from 'src/app/core/services/promocao.service';
 import { Promocao } from 'src/app/core/types/types';
 
@@ -11,7 +12,8 @@ export class HomeComponent implements OnInit {
 
   promocoes : Promocao[] = [];
 
-  constructor ( private servicoPromocao:PromocaoService) {
+  constructor ( private servicoPromocao:PromocaoService,
+                private router: Router) {
 
   }
 
@@ -25,6 +27,10 @@ export class HomeComponent implements OnInit {
           console.log(this.promocoes);
         }
       );
+  }
+
+  navegarParaBusca($event: any) {
+    this.router.navigate(['busca'])
   }
 
 

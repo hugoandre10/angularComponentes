@@ -43,7 +43,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AutenticacaoService } from './core/services/autenticacao.service';
 import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
-
+import { BuscaComponent } from './pages/busca/busca.component';
+import { PassagemComponent } from './shared/passagem/passagem.component';
+import { FiltrosComplementaresComponent } from './shared/form-busca/filtros-complementares/filtros-complementares.component';
+import { CompanhiasComponent } from './shared/form-busca/filtros-complementares/companhias/companhias.component';
+import { LabelComponent } from './shared/form-busca/filtros-complementares/label/label.component';
+import { ParadasComponent } from './shared/form-busca/filtros-complementares/paradas/paradas.component';
+import { PrecosComponent } from './shared/form-busca/filtros-complementares/precos/precos.component';
+import {MatSliderModule} from '@angular/material/slider';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +73,13 @@ import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interc
     CadastroComponent,
     FormBaseComponent,
     PerfilComponent,
+    BuscaComponent,
+    PassagemComponent,
+    FiltrosComplementaresComponent,
+    CompanhiasComponent,
+    LabelComponent,
+    ParadasComponent,
+    PrecosComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +101,8 @@ import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interc
     MatAutocompleteModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSliderModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

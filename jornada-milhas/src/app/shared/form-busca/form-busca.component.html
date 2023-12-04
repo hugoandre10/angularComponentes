@@ -40,14 +40,14 @@
 
     <mat-form-field class="input-container input-data" appearance="outline">
       <mat-label>Data de ida</mat-label>
-      <input matInput [matDatepicker]="picker" placeholder="Selecione">
+      <input matInput [matDatepicker]="picker" placeholder="Selecione" formControlName="dataIda">
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="input-container input-data" appearance="outline">
       <mat-label>Data de volta</mat-label>
-      <input matInput [matDatepicker]="pickerOne" placeholder="Selecione">
+      <input matInput [matDatepicker]="pickerOne" placeholder="Selecione" formControlName="dataVolta">
       <mat-datepicker-toggle matIconSuffix [for]="pickerOne"></mat-datepicker-toggle>
       <mat-datepicker #pickerOne></mat-datepicker>
     </mat-form-field>
