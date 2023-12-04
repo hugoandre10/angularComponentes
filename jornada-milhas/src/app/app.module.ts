@@ -26,7 +26,7 @@ import {  MatNativeDateModule } from '@angular/material/core';
 import { ModalComponent } from './shared/modal/modal.component';
 import {  MatDialogModule } from '@angular/material/dialog';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf.component';
@@ -41,6 +41,8 @@ import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { FormBaseComponent } from './shared/form-base/form-base.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { AutenticacaoService } from './core/services/autenticacao.service';
+import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
 
 @NgModule({
   declarations: [
@@ -87,7 +89,12 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     MatRadioModule,
     MatDividerModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AutenticacaoInterceptor,
+    multi:true
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
