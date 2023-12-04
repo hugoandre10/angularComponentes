@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MAT_DATE_LOCALE, MAT_DATE_FORMATS, MatDateFormats, DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { Router } from '@angular/router';
 import * as _moment from 'moment';
 import { CadastroService } from 'src/app/core/services/cadastro.service';
 import { FormularioService } from 'src/app/core/services/formulario.service';
@@ -37,7 +38,8 @@ export class CadastroComponent {
   perfilComponent = false;
 
   constructor(private formularioService: FormularioService,
-    private cadastroService: CadastroService) {
+    private cadastroService: CadastroService,
+    private router: Router) {
 
   }
 
@@ -49,6 +51,7 @@ export class CadastroComponent {
       this.cadastroService.cadastrar(novoCadastro).subscribe({
         next: (value) => {
           console.log('Cadastro realizado com sucesso', formCadastro)
+          this.router.navigate(['/login'])
         },
         error: (err) => {
           console.log('Cadastro não realizado', err);

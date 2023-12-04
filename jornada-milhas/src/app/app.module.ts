@@ -40,6 +40,7 @@ import {  MatRadioModule  } from '@angular/material/radio';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { FormBaseComponent } from './shared/form-base/form-base.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { MatDividerModule } from '@angular/material/divider';
     LoginComponent,
     CadastroComponent,
     FormBaseComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,

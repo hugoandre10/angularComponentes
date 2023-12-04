@@ -41,11 +41,7 @@ export interface PessoaUsuaria {
   senha: string,
   genero: string,
   cidade: string,
-  estado: {
-    id: number,
-    nome: string,
-    sigla: string
-  }
+  estado: UnidadeFederativa
 }
 
 
