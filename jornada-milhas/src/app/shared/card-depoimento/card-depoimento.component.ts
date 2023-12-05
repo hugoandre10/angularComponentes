@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Depoimento } from 'src/app/core/types/types';
+import { Depoimento } from 'src/app/core/types/type';
 
 @Component({
   selector: 'app-card-depoimento',
@@ -8,4 +8,5 @@ import { Depoimento } from 'src/app/core/types/types';
 })
 export class CardDepoimentoComponent {
   @Input() depoimento!: Depoimento;
+
 }

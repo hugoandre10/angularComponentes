@@ -8,15 +8,12 @@ export class FormularioService {
 
   cadastroForm: FormGroup | null = null;
 
-  constructor ( ) {
-
+  getCadastro(): FormGroup | null{
+    return this.cadastroForm;
   }
 
-  getCadastro () : FormGroup | null {
-    return this.cadastroForm
-  }
-
-  setCadastro (form: FormGroup) {
+  setCadastro(form: FormGroup) {
     this.cadastroForm = form;
   }
+
 }

@@ -10,6 +10,7 @@
   .selecao-idade {
     display: flex;
     justify-content: space-between;
+    
   }
   .selecao-categoria {
     margin-top: 32px;
@@ -21,7 +22,7 @@
     margin-bottom: 20px;
     button {
       margin: 0 8px;
-      max-width: 100%;
+      width: 100%;
     }
   }
 }
