@@ -100,4 +100,10 @@ export interface DadosBusca {
   porPagina: number;
 }
 
+export interface Destaques {
+  maisRapida: Passagem;
+  maisBarata: Passagem;
+  sugerida: Passagem;
+}
+
 
